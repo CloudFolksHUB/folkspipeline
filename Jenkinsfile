@@ -1,11 +1,18 @@
 pipeline {
     agent any
-
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World from CloudFolks'
+                echo 'Building the application...'
             }
+        }
+    }
+    post {
+        success {
+            echo 'Pipeline finished successfully.'
+        }
+        failure {
+            echo 'Pipeline failed. Check the logs.'
         }
     }
 }
